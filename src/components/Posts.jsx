@@ -1,21 +1,17 @@
-import { useState } from 'react';
-
-// 1. มี 1 state : จำนวน Likes
-// 2. มี 1 event : onClick ที่ button มี 2 callback คือ handleClickLike กับ handleClickDislike
-// 3. ประกาศ 2 functions : handleClickLike กับ handleClickDislike
+import { useState } from "react";
 
 function Posts(props) {
-  const [likes, setLikes] = useState(props.likes);
+  const [like, setLikes] = useState(props.like);
 
-  const handleClickLike = () => {
-    const newLikes = likes + 1;
-    setLikes(newLikes);
+  const handleLike = () => {
+    const newLike = like + 1;
+    setLikes(newLike);
   };
 
-  const handleClickDislike = () => {
-    if (likes > 0) {
-      const newLikes = likes - 1;
-      setLikes(newLikes);
+  const handleDislike = () => {
+    if (like > 0) {
+      const newLike = like - 1;
+      setLikes(newLike);
     }
   };
 
@@ -30,22 +26,22 @@ function Posts(props) {
             </h2>
             <div className="post-social-media-stats">
               <span className="stats-topic">Likes: </span>
-              <span className="post-likes">{likes}</span>
+              <span className="post-likes">{like}</span>
             </div>
           </div>
           <p className="post-content">
             {props.content}
-            {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
             vel turpis vestibulum, aliquet ipsum vitae, auctor risus. Morbi
             tincidunt, leo non molestie consectetur, elit libero faucibus
             tellus, sed fringilla tortor libero sit amet odio. Maecenas sed ante
-            condimentum mauris euismod pellentesque eu eu justo... */}
+            condimentum mauris euismod pellentesque eu eu justo...
           </p>
           <div className="post-actions">
-            <button className="like-button" onClick={handleClickLike}>
+            <button className="like-button" onClick={handleLike}>
               Like
             </button>
-            <button className="dislike-button" onClick={handleClickDislike}>
+            <button className="dislike-button" onClick={handleDislike}>
               Dislike
             </button>
           </div>
