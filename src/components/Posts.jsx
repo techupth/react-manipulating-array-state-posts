@@ -1,31 +1,24 @@
-function Posts() {
+const PostCard = ({ post, onLike, onDislike }) => {
   return (
-    <div class="app-wrapper">
-      <h1 class="app-title">Posts</h1>
-      <div class="post-list">
-        <div class="post-item">
-          <div class="post-header">
-            <h2>Post Title #1</h2>
-            <div class="post-social-media-stats">
-              <span class="stats-topic">Likes: </span>
-              <span class="post-likes">10</span>
-            </div>
-          </div>
-          <p class="post-content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-            vel turpis vestibulum, aliquet ipsum vitae, auctor risus. Morbi
-            tincidunt, leo non molestie consectetur, elit libero faucibus
-            tellus, sed fringilla tortor libero sit amet odio. Maecenas sed ante
-            condimentum mauris euismod pellentesque eu eu justo...
-          </p>
-          <div class="post-actions">
-            <button class="like-button">Like</button>
-            <button class="dislike-button">Dislike</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+    <article className="post-card">
+      <header className="post-card__header">
+        <h3 className="post-card__title">{post.title}</h3>
+        <span className="post-card__likes">Likes: {post.likes}</span>
+      </header>
 
-export default Posts;
+      <p className="post-card__body">{post.body}</p>
+
+      <div className="post-card__actions">
+        <button className="btn btn-like" onClick={onLike}>
+          Like
+        </button>
+        <button className="btn btn-dislike" onClick={onDislike}>
+          Dislike
+        </button>
+      </div>
+    </article>
+  );
+};
+
+export default PostCard;
+
